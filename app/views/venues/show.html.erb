@@ -22,6 +22,7 @@
         <td><%= event.date %></td>
         <td><%= event.cancelled %></td>
         <td><%= link_to 'Ver', venue_event_path(event) %></td>
+        <td><%= link_to 'Eliminar', venue_event_path(@venue, event), data: { turbo_method: "delete" }%></td>
       </tr>
     <%end%>   
   </tbody>
