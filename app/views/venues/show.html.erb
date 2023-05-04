@@ -1,0 +1,34 @@
+<h1> <%= @venue.name%> </h1>
+<h2> <%= @venue.address%> </h2>
+<h3>  <%= @venue.capacity%> </h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Capacidad</th>
+      <th scope="col">Cancelado</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @venue.events.each do |event|%>
+      <tr>
+        <th scope="row"><%= event.id %></th>
+        <td><%= event.name %></td>
+        <td><%= event.category.name %></td>
+        <td><%= event.date %></td>
+        <td><%= event.cancelled %></td>
+        <td><%= link_to 'Ver', venue_event_path(event) %></td>
+        <td><%= link_to  venue_event_path(@venue, event), data: { turbo_method: "delete" }, class: "btn btn-danger btn-sm" do %>
+            <i class="bi bi-trash"></i>
+          <% end %>
+        </td>
+      </tr>
+    <%end%>   
+  </tbody>
+</table>
+<%= link_to "Volver", venues_path, class: "btn btn-secondary" %>
+<%= link_to "Nuevo evento", new_venue_event_path(@venue), class: "btn btn-primary" %>
