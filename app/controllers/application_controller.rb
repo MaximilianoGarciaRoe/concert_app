@@ -1,3 +1,5 @@
 class ApplicationController < ActionController::Base
-  def index; end
+  def index
+    @events = Event.preload(:venue, :category).last(3)
+  end
 end

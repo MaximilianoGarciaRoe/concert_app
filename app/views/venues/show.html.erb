@@ -21,10 +21,13 @@
         <td><%= event.category.name %></td>
         <td><%= event.date %></td>
         <td><%= event.cancelled %></td>
-        <td><%= link_to 'Ver', venue_event_path(event) %></td>
-        <td><%= link_to  venue_event_path(@venue, event), data: { turbo_method: "delete" }, class: "btn btn-danger btn-sm" do %>
-            <i class="bi bi-trash"></i>
-          <% end %>
+        <td><%= link_to venue_event_path(event), class: "btn btn-info" do  %>
+              <i class="bi bi-eye-fill"></i>
+            <% end %>
+        </td>
+        <td><%= link_to  venue_event_path(@venue, event), data: { turbo_method: "delete" }, class: "btn btn-danger" do %>
+              <i class="bi bi-trash-fill"></i>
+            <% end %>
         </td>
       </tr>
     <%end%>   
