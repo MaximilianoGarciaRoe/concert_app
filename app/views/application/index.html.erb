@@ -15,6 +15,23 @@
   <% end %>
 </div>
 
-<i class="bi bi-trash3-fill"></i>
 
+<a href="#" id="prueba_ajax">Prueba AJAX</a>
+<div id="resultado"></div>
 
+<script>
+document.getElementById("prueba_ajax").addEventListener("click", function(event) {
+  event.preventDefault(); // Evita que se actualice la página al hacer clic en el enlace
+
+  fetch("/venues/mejor_lugar", {
+      headers: {
+        "X-Requested-With": "XMLHttpRequest"
+      }
+    })
+    .then(response => response.text()) // Parsea la respuesta como JSON
+    .then(data => {
+      document.getElementById("resultado").innerHTML = data;
+      // Aquí puedes manipular los datos recibidos y actualizar el contenido en la página
+    });
+});
+</script>

@@ -5,6 +5,17 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    respond_to do |format|
+      format.html { render :show, layout: !request.xhr? }
+      format.json { render json: @venue }
+    end
+  end
+
+  def mejor_lugar
+    @venue = Venue.first
+    respond_to do |format|
+      format.html { render :mejor_lugar, layout: !request.xhr? }
+    end
   end
 
   def new
