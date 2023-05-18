@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'application#index'
 
   resources :venues do
+    get :mejor_lugar, on: :collection
     resources :events
   end
 end
