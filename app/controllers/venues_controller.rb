@@ -26,7 +26,7 @@ class VenuesController < ApplicationController
     @venue = Venue.new(venue_params)
     if @venue.save
       flash[:success] = 'Venue was successfully created.'
-      redirect_to venue_path(venue)
+      redirect_to venue_path(@venue)
     else
       flash[:error] = 'Venue was not created.'
       render :new, status: :unprocessable_entity

@@ -1,18 +1,6 @@
-
-<%= form_with model: @venue do |form| %>
-  <% if @venue.errors.any? %>
-    <div class="alert alert-danger">
-      <h4><%= pluralize(@venue.errors.count, "error") %> deben ser corregidos:</h4>
-      <ul>
-        <% @venue.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <%= form.text_field :name %>
-  <%= form.text_field :address %>
-  <%= form.number_field :capacity %>
-  <%= form.submit %>
+<%= simple_form_for @venue do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :capacity %>
+  <%= f.button :submit %>
 <% end %>
-
