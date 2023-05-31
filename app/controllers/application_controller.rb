@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
-  skip_before_action :verify_authenticity_token
-
 
   def index
-    @events = Event.preload(:venue, :category).last(3)
+    if user_signed_in? && current_user.admin?
+      @events = Event.preload(:venue, :category).all
+    else
+      @events = Event.preload(:venue, :category).last(3)
+    end
   end
 end

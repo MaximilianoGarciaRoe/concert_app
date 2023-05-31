@@ -79,3 +79,5 @@ gem 'rack-cors'
 
 gem 'simple_form'
 
+gem 'devise'
+
