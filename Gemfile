@@ -85,3 +85,4 @@ gem "redis", "~> 5.0"
 
 gem 'devise'
 
+gem 'cancancan'
