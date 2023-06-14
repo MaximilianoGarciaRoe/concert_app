@@ -28,5 +28,6 @@ module ConcertApp
                  methods: %i[get post put patch delete options head] # Permite todos los métodos HTTP
       end
     end
+    config.assets.enabled = true
   end
 end
