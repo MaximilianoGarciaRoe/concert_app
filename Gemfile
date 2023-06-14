@@ -79,3 +79,10 @@ gem 'rack-cors'
 
 gem 'simple_form'
 
+gem "dockerfile-rails", ">= 1.4", :group => :development
+
+gem "redis", "~> 5.0"
+
+gem 'devise'
+
+gem 'cancancan'

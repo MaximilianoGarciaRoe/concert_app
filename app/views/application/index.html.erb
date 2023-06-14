@@ -1,5 +1,7 @@
 <h1> LA MEJOR PAGINA DE CONCIERTOS </h1>
-
+<% if user_signed_in? && current_user.admin?%>
+  Esto es admin
+<% end %>
 <div class="row">
   <% @events.each do |event|  %>
     <div class="col">
